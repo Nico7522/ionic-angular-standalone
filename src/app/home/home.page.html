@@ -23,13 +23,14 @@
   }
 
   <ion-list>
-    <ion-item lines="none" class="ion-padding-bottom">
-      <ion-searchbar [(ngModel)]="title" placeholder="Title ..."></ion-searchbar>
-      <ion-button (click)="search()">Search</ion-button>
-
-    </ion-item>
+    @if (!isLoading) {
+      <ion-item lines="none" class="ion-padding-bottom">
+        <ion-searchbar [(ngModel)]="title" placeholder="Title ..."></ion-searchbar>
+        <ion-button (click)="search()">Search</ion-button>
+      </ion-item>
+    }
     @for (movie of movies; track movie.id) {
-      <ion-item button [routerLink]="['/details', movie.id]">
+      <ion-item lines="full" button [routerLink]="['/details', movie.id]">
         <ion-avatar slot="start">
           <img [src]="imageBaseUrl +  '/w92' + movie.poster_path" alt="poster">
         </ion-avatar>

@@ -29,8 +29,10 @@ export class MovieService {
   }
 
   search(movieTitle: string, page: number): Observable<ApiResult> {
-    return this._http.get<ApiResult>(
-      `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&include_adult=false&language=en-US&page=${page}&api_key=${API_KEY}`
-    );
+    return this._http
+      .get<ApiResult>(
+        `https://api.themoviedb.org/3/search/movie?query=${movieTitle}&include_adult=false&language=en-US&page=${page}&api_key=${API_KEY}`
+      )
+      .pipe(delay(1500));
   }
 }

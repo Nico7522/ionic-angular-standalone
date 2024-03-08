@@ -66,7 +66,6 @@ export class HomePage {
 
   loadMovies(event?: InfiniteScrollCustomEvent) {
     this.error = null;
-    console.log(event);
 
     if (!event) {
       this.isLoading = true;

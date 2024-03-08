@@ -1,6 +1,6 @@
 export interface ApiResult {
   page: number;
-  results: any[];
+  results: MovieResult[];
   total_pages: number;
   total_results: number;
 }
